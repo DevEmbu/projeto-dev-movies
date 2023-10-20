@@ -12,6 +12,10 @@ import { getImages } from '../../utils/getImages'
 function Home(){
   const [movie, setMovie] = useState()
   const [topMovies, setTopMovies] = useState()
+  const [topSeries, setTopSeries] = useState()
+  const [popularSeries, setPopularSeries] = useState()
+  const [pessoasPopulares, setPessoasPopulares ] = useState()
+
 
   useEffect(() => {
     async function getMovies(){
@@ -27,8 +31,32 @@ function Home(){
            setTopMovies(results)  
                                   }
 
+      async function getTopSeries(){
+        const {data: {results} } = await api.get('/tv/top_rated')
+           
+              setTopSeries(results)  
+                                   } 
+      
+      async function getPopularSeries(){
+         const {data: {results} } = await api.get('/tv/popular')
+          
+             setPopularSeries(results)
+      }
+
+      async function getPessoasPopulares(){
+        const {data: {results} } = await api.get('/person/popular')
+          console.log('console.log' + results)
+          setPessoasPopulares()
+      }
+
+     
+
       getMovies()
       getTopMovies()
+      getTopSeries()
+      getPopularSeries()
+      getPessoasPopulares()
+     
 
   }, [])
  
@@ -43,7 +71,7 @@ function Home(){
             <Info>
              <h2>{movie.title}</h2>
              <p>{movie.overview}</p>
-             <h4> ----- Criando Carrossel de Serie - React III ----</h4>
+             <h4> ----- Criando Carrossel de Artista - React III ----</h4>
 
               <ContainerButton>                
                 <Button red={ true }>Assista Agora</Button>
@@ -61,6 +89,11 @@ function Home(){
 
         )}
           {topMovies && <Slider info={topMovies} title={'Top Filmes'} />}
+          {topSeries && <Slider info={topSeries} title={'Top Series'} />}
+          {popularSeries && <Slider info={popularSeries} title={'Series Populares'} />}
+          {pessoasPopulares && <Slider info={pessoasPopulares} title={'Artistas Populares'} />}
+          
+
      </>
     )
 }
