@@ -8,7 +8,7 @@ function Cartao({item }){
     return(
         
            <Container>
-             <img src={getImages(item.poster_path || item.profile_path )} />
+             <img src={getImages(item.poster_path)} />
                <h3> {item.title} </h3>
             </Container>
        
