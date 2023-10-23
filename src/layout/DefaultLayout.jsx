@@ -9,8 +9,8 @@ function Defaultlayout() {
 
     return(
         <>
-          {/* <Header /> */}
-          <Outlet />
+         <Header /> 
+         <Outlet />
       
         </>
     )

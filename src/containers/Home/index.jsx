@@ -23,7 +23,7 @@ function Home(){
     async function getMovies(){
         const {data: {results} } = await api.get('/movie/popular')
             
-          setMovie(results[11])               
+          setMovie(results[19])               
                      
       }
      
