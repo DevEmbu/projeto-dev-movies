@@ -1,12 +1,14 @@
 {/* Index do Home Containers */}
+import { useState, useEffect } from 'react'
 
 import Button from '../../components/Buttons'
-import { ContainerButton } from '../../components/Buttons/style'
+import Modal from '../../components/Modal'
 import Slider from '../../components/Slider'
 import api from '../../services/api'
-import { Background, Info, Poster, Container } from './styles'
-import { useState, useEffect } from 'react'
 import { getImages } from '../../utils/getImages'
+import { Background, Info, Poster, Container } from './styles'
+import {ContainerButton} from '../../components/Buttons/style'
+
 
 
 function Home(){
@@ -16,6 +18,7 @@ function Home(){
   const [popularSeries, setPopularSeries] = useState()
   const [pessoasPopulares, setPessoasPopulares] = useState()
   const [companhias, setCompanhias] = useState()
+
  
 
 
@@ -23,7 +26,7 @@ function Home(){
     async function getMovies(){
         const {data: {results} } = await api.get('/movie/popular')
             
-          setMovie(results[19])               
+          setMovie(results[4])               
                      
       }
      
@@ -59,6 +62,8 @@ function Home(){
 
       
 
+      
+
      
 
       getMovies()
@@ -66,7 +71,8 @@ function Home(){
       getTopSeries()
       getPopularSeries() 
       getPessoasPopulares()  
-      getCompanhias() 
+      getCompanhias()
+
 
      }, [])
  
@@ -76,12 +82,12 @@ function Home(){
         {movie && (
 
          <Background img={getImages(movie.backdrop_path)}>
-         
+            <Modal movieId={ movie.id } />
           <Container>
             <Info>
              <h2>{movie.title}</h2>
              <p>{movie.overview}</p>
-             <h4> ----- Criando Carrossel de Artista - React III ----</h4>
+             <h4> ----- Criando Modal de Filmes - React III ----</h4>
 
               <ContainerButton>                
                 <Button red={ true }>Assista Agora</Button>
