@@ -21,7 +21,7 @@ function Header(){
     return(
         <ContainerHeader changeBackground={changeBackground}>
         
-         <img src={ LogoHeader } alt='Logo-Devembu' /> 
+         <img src={ LogoHeader } alt='Logo-Devembu'/> 
          
          <Menu>
                 <Li isActive={pathname === '/'}> <Link to="/">Home</Link>  </Li>

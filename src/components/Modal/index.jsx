@@ -2,7 +2,9 @@
 
 import { useEffect, useState} from "react"
 import api from "../../services/api"
-import { Container } from "./style"
+import { Container, Background } from "./style"
+
+
 
 function Modal ({movieId}){
     const [movie, setMovie] = useState()
@@ -18,9 +20,20 @@ function Modal ({movieId}){
         }, [])
 
     return(
+        <Background>
+            {movie && (
         <Container> 
-          <div>{movieId}</div>
+          <iframe src={`https://www.youtube.com/embed/${movie.key}`}
+            title='YouTube video player'
+            height="315px"
+            width="560"
+
+             > 
+           </iframe>
+
         </Container>
+          )}
+        </Background>
     )
 }
 

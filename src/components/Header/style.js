@@ -8,21 +8,20 @@ z-index: 99;
 position: fixed;
 top: 0;
 display: flex;
-padding: 10px;
 justify-content: space-between;
 align-items: center;
+padding: 10px 50px;
 background-color: ${(props) => props.changeBackground ? '#000' : 'transparent'};
 transition: background-color 0.6s ease-in-out;
 
    img{
-      width: 12%;
+      width: 20%;
 
    }
 `
 
 export const Menu = styled.ul`
 display: flex;
-position: absolute;
 list-style: none;
 gap: 50px;
 
@@ -35,7 +34,8 @@ font-size: 22px;
 position: relative;
 
 
-   a {
+
+   a{
       text-decoration: none;
       color: #ffffff;
     

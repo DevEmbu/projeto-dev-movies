@@ -17,7 +17,7 @@ function Home(){
   const [topSeries, setTopSeries] = useState()
   const [popularSeries, setPopularSeries] = useState()
   const [pessoasPopulares, setPessoasPopulares] = useState()
-  const [companhias, setCompanhias] = useState()
+  
 
  
 
@@ -25,8 +25,8 @@ function Home(){
   useEffect(() => {
     async function getMovies(){
         const {data: {results} } = await api.get('/movie/popular')
-            
-          setMovie(results[4])               
+            console.log(results)
+          setMovie(results[3])               
                      
       }
      
@@ -50,28 +50,16 @@ function Home(){
 
       async function getPessoasPopulares(){
         const {data: {results} } = await api.get('/person/popular')
-                console.log('Top Artistas' + results)
+                
               setPessoasPopulares(results)
       }
 
-      async function getCompanhias(){
-        const {data: {results} } = await api.get('/company/{company_id}/images')
-        console.log(results)|
-        setCompanhias(results)
-      }
-
-      
-
-      
-
-     
-
+    
       getMovies()
       getTopMovies()
       getTopSeries()
       getPopularSeries() 
-      getPessoasPopulares()  
-      getCompanhias()
+      getPessoasPopulares()       
 
 
      }, [])
@@ -108,7 +96,7 @@ function Home(){
           {topSeries && <Slider info={topSeries} title={'Top Series'} />}
           {popularSeries && <Slider info={popularSeries} title={'Series Populares'} />}
           {pessoasPopulares && <Slider info={pessoasPopulares} title={'Artistas Populares'} />}
-          {companhias && <Slider info={companhias} title={'Empresas'} />}
+          
 
      </>
     )
