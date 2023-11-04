@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 export const ContainerHeader = styled.div`
 min-height: 100px;
-z-index: 99;
+z-index: 999;
 position: fixed;
 top: 0;
 display: flex;
@@ -23,7 +23,7 @@ transition: background-color 0.6s ease-in-out;
 export const Menu = styled.ul`
 display: flex;
 list-style: none;
-gap: 50px;
+gap: 20px;
 
 `
 
@@ -32,7 +32,6 @@ font-weight: 600;
 cursor: pointer;
 font-size: 22px;
 position: relative;
-
 
 
    a{

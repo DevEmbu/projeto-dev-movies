@@ -12,6 +12,7 @@ import {ContainerButton} from '../../components/Buttons/style'
 
 
 function Home(){
+  const [mostrarModal, setMostrarModal] = useState(false)
   const [movie, setMovie] = useState()
   const [topMovies, setTopMovies] = useState()
   const [topSeries, setTopSeries] = useState()
@@ -26,7 +27,7 @@ function Home(){
     async function getMovies(){
         const {data: {results} } = await api.get('/movie/popular')
             console.log(results)
-          setMovie(results[3])               
+          setMovie(results[5])               
                      
       }
      
@@ -70,16 +71,16 @@ function Home(){
         {movie && (
 
          <Background img={getImages(movie.backdrop_path)}>
-            <Modal movieId={ movie.id } />
+             {mostrarModal && <Modal movieId={ movie.id } setMostrarModal={setMostrarModal} />}
           <Container>
             <Info>
              <h2>{movie.title}</h2>
              <p>{movie.overview}</p>
-             <h4> ----- Criando Modal de Filmes - React III ----</h4>
-
+             <h4> ----- Controlando a visibilidade do Modal de Filmes - React III ----</h4>
+         
               <ContainerButton>                
                 <Button red={ true }>Assista Agora</Button>
-                <Button red={ false }>Assista o Trailler</Button>
+                <Button red={ false } onClick={() => setMostrarModal(true)} >Assista o Trailler</Button>
               </ContainerButton>
 
             </Info> 

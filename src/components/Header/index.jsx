@@ -9,14 +9,13 @@ function Header(){
       
   
     window.onscroll = () => {
-        if(!changeBackground && window.pageYOffset > 125) {
+        if(!changeBackground && window.pageYOffset > 50) {
             setChangeBackground(true)
         }
-        if(changeBackground && window.pageYOffset <= 125) {
+        if(changeBackground && window.pageYOffset <=50) {
             setChangeBackground(false)
         }
-        }
-    
+        }   
    
     return(
         <ContainerHeader changeBackground={changeBackground}>

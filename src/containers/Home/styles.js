@@ -10,7 +10,7 @@ export const Background = styled.div`
       align-items: center;
       justify-content: center;
 
-&::before {
+ &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -18,7 +18,9 @@ export const Background = styled.div`
     width: 100%;
     height: 100%;  
     background-color: rgba(0,0,0, 0.4);
-}
+ 
+} 
+
 `
 export const Container = styled.div`
        display: flex;
@@ -55,7 +57,7 @@ export const Info = styled.div`
      font-size: 12px;
      font-weight: 100;
      color: #FFD700;
-     margin-left: 180px;
+     margin-left: 50px;
    }
 `
 export const Poster = styled.div`
