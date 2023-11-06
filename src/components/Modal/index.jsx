@@ -1,8 +1,8 @@
 {/* INDEX DO MODAL */}
 
 import { useEffect, useState} from "react"
-import api from "../../services/api"
 import { Container, Background } from "./style"
+import { getMoviesModal } from "../../services/coletaDadosDaApi"
 
 
 
@@ -10,11 +10,10 @@ function Modal({movieId, setMostrarModal}){
     const [movie, setMovie] = useState()
 
     useEffect(() => {
+      //foi chamado la na coleta de dados
         async function getMovies(){
-            const {data: {results} } = await api.get(`movie/${movieId}/videos`)
-
-                console.log(results[0])
-              setMovie(results[0])        
+            
+              setMovie(await getMoviesModal(movieId))        
           }
           
           getMovies()

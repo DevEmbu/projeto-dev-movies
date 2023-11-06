@@ -9,6 +9,7 @@ import api from '../../services/api'
 import { getImages } from '../../utils/getImages'
 import { Background, Info, Poster, Container } from './styles'
 import {ContainerButton} from '../../components/Buttons/style'
+import { getMovies, getPessoasPopulares, getPopularSeries, getTopMovies, getTopSeries } from '../../services/coletaDadosDaApi'
 
 
 
@@ -22,49 +23,19 @@ function Home(){
   const navigate = useNavigate()
   
 
- 
-
-
   useEffect(() => {
-    async function getMovies(){
-        const {data: {results} } = await api.get('/movie/popular')
-            console.log(results)
-          setMovie(results[5])               
-                     
+    async function getAllData(){
+        
+          setMovie(await getMovies())  
+          setTopMovies(await getTopMovies())
+          setTopSeries(await getTopSeries())
+          setPopularSeries(await getPopularSeries())
+          setPessoasPopulares(await getPessoasPopulares())  
+                          
       }
      
-      async function getTopMovies(){
-        const {data: {results} } = await api.get('/movie/top_rated')
-           console.log(results) 
-           setTopMovies(results)  
-                                  }
-
-      async function getTopSeries(){
-        const {data: {results} } = await api.get('/tv/top_rated')
-           
-              setTopSeries(results)  
-                                   } 
+      getAllData()
       
-      async function getPopularSeries(){
-         const {data: {results} } = await api.get('/tv/popular')
-             
-             setPopularSeries(results)
-      }
-
-      async function getPessoasPopulares(){
-        const {data: {results} } = await api.get('/person/popular')
-                
-              setPessoasPopulares(results)
-      }
-
-    
-      getMovies()
-      getTopMovies()
-      getTopSeries()
-      getPopularSeries() 
-      getPessoasPopulares()       
-
-
      }, [])
  
 
