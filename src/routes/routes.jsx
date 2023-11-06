@@ -5,6 +5,7 @@ import Home from '../containers/Home'
 import Movies from '../containers/Movies'
 import Series from '../containers/Series'
 import DefaultLayout from '../layout/DefaultLayout'
+import Detalhes from '../containers/Detalhes'
 
 
 function Rotas(){
@@ -16,6 +17,7 @@ function Rotas(){
             <Route path="/" element={<Home />} />
             <Route path="/filmes" element={<Movies />} />
             <Route path="/series" element={<Series />} />
+            <Route path="/detalhe/:id" element={<Detalhes />} />
           </Route>
          
         </Routes>

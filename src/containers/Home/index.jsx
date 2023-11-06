@@ -1,5 +1,6 @@
 {/* Index do Home Containers */}
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Button from '../../components/Buttons'
 import Modal from '../../components/Modal'
@@ -18,6 +19,7 @@ function Home(){
   const [topSeries, setTopSeries] = useState()
   const [popularSeries, setPopularSeries] = useState()
   const [pessoasPopulares, setPessoasPopulares] = useState()
+  const navigate = useNavigate()
   
 
  
@@ -79,7 +81,7 @@ function Home(){
              <h4> ----- Controlando a visibilidade do Modal de Filmes - React III ----</h4>
          
               <ContainerButton>                
-                <Button red={ true }>Assista Agora</Button>
+                <Button red={ true } onClick={() => navigate(`/detalhe/${movie.id}`)}>Assista Agora</Button>
                 <Button red={ false } onClick={() => setMostrarModal(true)} >Assista o Trailler</Button>
               </ContainerButton>
 
