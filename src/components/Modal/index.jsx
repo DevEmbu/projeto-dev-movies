@@ -2,7 +2,7 @@
 
 import { useEffect, useState} from "react"
 import { Container, Background } from "./style"
-import { getMoviesModal } from "../../services/coletaDadosDaApi"
+import { getModalVideos } from "../../services/coletaDadosDaApi"
 
 
 
@@ -11,9 +11,8 @@ function Modal({movieId, setMostrarModal}){
 
     useEffect(() => {
       //foi chamado la na coleta de dados
-        async function getMovies(){
-            
-              setMovie(await getMoviesModal(movieId))        
+        async function getMovies(){            
+              setMovie(await getModalVideos(movieId))        
           }
           
           getMovies()
