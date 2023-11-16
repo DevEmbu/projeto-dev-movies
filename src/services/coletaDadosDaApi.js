@@ -6,7 +6,7 @@ export async function getMovies(){
     const {data: {results} 
     } = await api.get('/movie/popular')
 
-    return results[11]
+    return results[5]
 }
 
 //chama os top-filmes
@@ -42,29 +42,30 @@ export async function getPessoasPopulares(){
 }
 
 //chama o player do Modal
-export async function getModalVideos(movieId){
-    const {data} = await api.get(`movie/${movieId}/videos`)
+export async function getModalVideos(movie_id){
+    const {data: { results }
+    } = await api.get(`movie/${movie_id}/videos`)
 
                 
-    return data
+    return results[0]
 }
 
-export async function getModalCreditos(movieId){
-    const {data} = await api.get(`movie/${movieId}/credits`)
+export async function getModalCreditos(movie_id){
+    const {data} = await api.get(`movie/${movie_id}/credits`)
     
    return data
 } 
 
-export async function getModalSimilar(movieId){
+export async function getModalSimilar(movie_id){
     const { data: { results }
-} = await api.get(`movie/${movieId}/similar`)
+} = await api.get(`movie/${movie_id}/similar`)
     
     return results
   
 }
 
-export async function getModalById(movieId){
-    const {data} = await api.get(`/movie/${movieId}`)
+export async function getModalById(movie_id){
+    const {data} = await api.get(`/movie/${movie_id}`)
 
    return data
 }

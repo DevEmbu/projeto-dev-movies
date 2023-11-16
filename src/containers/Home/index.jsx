@@ -9,7 +9,7 @@ import api from '../../services/api'
 import { getImages } from '../../utils/getImages'
 import { Background, Info, Poster, Container } from './styles'
 import { ContainerButton } from '../../components/Buttons/style'
-import { getMovies, getPessoasPopulares, getPopularSeries, getTopMovies, getTopSeries } from '../../services/coletaDadosDaApi'
+import { getMovies, getTopMovies, getTopSeries,getPopularSeries,getPessoasPopulares } from '../../services/coletaDadosDaApi'
 
 
 
