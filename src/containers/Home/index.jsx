@@ -54,7 +54,7 @@ function Home() {
       {movie && (
 
         <Background img={getImages(movie.backdrop_path)}>
-          {mostrarModal && <Modal movieId={movie.id} setMostrarModal={setMostrarModal} />}
+          {mostrarModal && (<Modal movieId={movie.id} setMostrarModal={setMostrarModal} /> )}
           <Container>
             <Info>
               <h2>{movie.title}</h2>
@@ -62,14 +62,14 @@ function Home() {
               <h4> ----- Organizando dados da tela de detalhes - React III ----</h4>
 
               <ContainerButton>
-                <Button red={true} onClick={() => navigate(`/detalhe/${movie.id}`)}>Assista Agora</Button>
-                <Button red={false} onClick={() => setMostrarModal(true)} >Assista o Trailler</Button>
+                <Button red onClick={() => navigate(`/detalhe/${movie.id}`)}>Assista Agora</Button>
+                <Button onClick={() => setMostrarModal(true)} >Assista o Trailler</Button>
               </ContainerButton>
 
             </Info>
 
             <Poster>
-              <img alt="capa-do-filme" src={getImages(movie.poster_path)} />
+              <img src={getImages(movie.poster_path)} alt="capa-do-filme"  />
             </Poster>
 
           </Container>

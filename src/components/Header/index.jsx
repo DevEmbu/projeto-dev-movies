@@ -9,10 +9,10 @@ function Header(){
       
   
     window.onscroll = () => {
-        if(!changeBackground && window.pageYOffset > 50) {
+        if(window.scrollY > 50) {
             setChangeBackground(true)
         }
-        if(changeBackground && window.pageYOffset <=50) {
+        if(window.scrollY <=50) {
             setChangeBackground(false)
         }
         }   

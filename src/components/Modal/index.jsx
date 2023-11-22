@@ -14,7 +14,7 @@ function Modal({movieId, setMostrarModal}){
         async function getMovies(){            
               setMovie(await getModalVideos(movieId))        
           }
-          
+         
           getMovies()
         }, [])
 
@@ -23,16 +23,16 @@ function Modal({movieId, setMostrarModal}){
             {movie && (
         <Container> 
           <iframe src={`https://www.youtube.com/embed/${movie.key}`}
-            title='YouTube video player'
+            title="YouTube Video Player"
             height="315px"
-            width="560px"               
-
-             > 
-           </iframe>
+            width="100%"        
+            > </iframe>
+            <button onClick={() => setMostrarModal(false)}> X </button>
 
         </Container>
           )}
         </Background>
+
     )
 }
 

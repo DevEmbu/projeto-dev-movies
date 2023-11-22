@@ -2,16 +2,17 @@
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ContainerDetalhes} from './style'
+import { ContainerDetalhes, BackgroundDetalhes, Cover } from './style'
 import { getModalById, getModalCreditos, getModalSimilar, getModalVideos } from '../../services/coletaDadosDaApi'
+import { getImages } from '../../utils/getImages'
 
 
 function Detalhes() {
      const { id } = useParams()
      const [movie, setMovie] = useState()
-     const [modalVideos, setModalVideos] = useState()
-     const [modalCredits, setModalCredits] = useState()
-     const [modalSimilar, setModalSimilar] = useState()
+     const [movieVideos, setMovieVideos] = useState()
+     const [movieCredits, setMovieCredits] = useState()
+     const [movieSimilar, setMovieSimilar] = useState()
 
     useEffect(() => {
         async function getAllData(){
@@ -22,11 +23,11 @@ function Detalhes() {
                 getModalSimilar(id)
             ])
             .then(([movie,videos,credits,similar]) => {
-                 console.log(([movie,videos,credits, similar]))                 
+                                 
                 setMovie(movie)
-                setModalVideos(videos)
-                setModalCredits(credits)
-                setModalSimilar(similar)
+                setMovieVideos(videos)
+                setMovieCredits(credits)
+                setMovieSimilar(similar)
             })
              .catch((error) => console.error(error))
         }
@@ -36,9 +37,20 @@ function Detalhes() {
     }, [])
 
     return(
-        <ContainerDetalhes> 
-           <div>Detalhes do Container</div>
-        </ContainerDetalhes>
+        <>
+        
+         {movie && (
+           <> 
+           <BackgroundDetalhes image={getImages(movie.backdrop_path)} />
+           <ContainerDetalhes> 
+            <Cover>
+                <img src={getImages(movie.poster_path)} />
+            </Cover>
+            <div>Detalhes do Container</div>
+          </ContainerDetalhes>
+          </>
+         )}
+        </>
     )
 }
 

@@ -1,6 +1,10 @@
 
 {/* Index do Movies Containers */}
 
+import Slider from "../../components/Slider"
+import { getMovies } from "../../services/coletaDadosDaApi"
+
+
 function Movies(){
 
     return(

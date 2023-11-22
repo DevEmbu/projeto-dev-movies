@@ -6,8 +6,8 @@ function Button({children, red,...rest}) {
 
     return(
         <> 
-           {red ? (<ButtonRed {...rest}>{children}</ButtonRed>) 
-           : (<ButtonBranco {...rest}>{children}</ButtonBranco>)}
+           {red ? (<ButtonRed {...rest}>{children}</ButtonRed>
+           ) : (<ButtonBranco {...rest}>{children}</ButtonBranco>)}
         </>
     )
 }
