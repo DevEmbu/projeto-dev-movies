@@ -18,6 +18,7 @@ function Header(){
         }   
    
     return(
+        
         <ContainerHeader changeBackground={changeBackground}>
         
          <img src={ LogoHeader } alt='Logo-Devembu'/> 
@@ -28,6 +29,7 @@ function Header(){
                 <Li isActive={pathname.includes('series')}> <Link to="/series">Series</Link> </Li>
         </Menu>
         </ContainerHeader>
+      
     )
 }
 

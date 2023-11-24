@@ -34,3 +34,6 @@ export const BackgroundDetalhes = styled.div`
 export const ContainerDetalhes = styled.div`
 
 `
+export const Cover = styled.div`
+
+`
