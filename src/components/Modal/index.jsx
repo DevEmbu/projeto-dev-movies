@@ -14,7 +14,7 @@ function Modal({movieId, setMostrarModal}){
         async function getMovies(){            
               setMovie(await getModalVideos(movieId))        
           }
-         
+      
           getMovies()
         }, [])
 

@@ -9,8 +9,9 @@ function DefaultLayout() {
 
     return(
         <>
-         <Header /> 
+         
          <Outlet />
+         <Header /> 
       
         </>
     )
