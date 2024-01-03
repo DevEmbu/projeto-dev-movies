@@ -62,7 +62,7 @@ function Home() {
               <h4> ----- Organizando dados da tela de detalhes - React III ----</h4>
 
               <ContainerButton>
-                <Button red onClick={() => navigate(`/detalhe/${movie.id}`)}>Assista Agora</Button>
+                <Button red onClick={() => navigate(`/detalhe${movie.id}`)}>Assista Agora</Button>
                 <Button onClick={() => setMostrarModal(true)} >Assista o Trailler</Button>
               </ContainerButton>
 

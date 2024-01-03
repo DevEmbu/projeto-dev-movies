@@ -8,11 +8,9 @@ import Header from '../components/Header'
 function DefaultLayout() {
 
     return(
-        <>
-         
+        <>         
          <Outlet />
-         <Header /> 
-      
+         <Header />       
         </>
     )
 }

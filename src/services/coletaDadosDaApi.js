@@ -6,7 +6,7 @@ export async function getMovies(){
     const {data: {results} 
     } = await api.get('/movie/popular')
 
-    return results[5]
+    return results[0]
 }
 
 //chama os top-filmes

@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ContainerDetalhes, BackgroundDetalhes, Cover } from './style'
+import { ContainerDetalhes, BackgroundDetalhes, Cover, Info } from './style'
 import { getModalById, getModalCreditos, getModalSimilar, getModalVideos } from '../../services/coletaDadosDaApi'
 import { getImages } from '../../utils/getImages'
+import SpanGenres from '../../components/SpanGenres'
+
 
 
 function Detalhes() {
@@ -22,8 +24,8 @@ function Detalhes() {
                 getModalCreditos(id),
                 getModalSimilar(id)
             ])
-            .then(([movie,videos,credits,similar]) => {
-                                 
+            .then(([movie,videos,credits,similar]) => {                                 
+                console.log(([movie,videos,credits, similar]))
                 setMovie(movie)
                 setMovieVideos(videos)
                 setMovieCredits(credits)
@@ -46,7 +48,12 @@ function Detalhes() {
             <Cover>
                 <img src={getImages(movie.poster_path)} />
             </Cover>
-            <div>Detalhes do Container</div>
+              <Info>
+                <h2>{movie.tilte}</h2>
+                <SpanGenres genres={movie.genres} />
+                <p>{movie.overview}</p>
+                <div>Creditos</div>
+              </Info>
           </ContainerDetalhes>
           </>
          )}

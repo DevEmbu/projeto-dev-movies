@@ -10,7 +10,7 @@ function Slider({info, title}){
         <Container> 
          <h2>{title}</h2>
            <Swiper 
-                 grabCurson = {true}
+                 grabCursor = {true}
                  spaceBetween={10}
                  slidesPerView={'auto'}
                  className="swiper"

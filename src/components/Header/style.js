@@ -10,20 +10,19 @@ top: 0;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 10px 50px;
-background-color: ${(props) => props.changeBackground ? '#000' : 'transparent'};
-transition: background-color 0.6s ease-in-out;
+padding: 5px;
+//background-color: ${(props) => props.changeBackground ? '#000' : 'transparent'};
+//transition: background-color 0.6s ease-in-out;
 
    img{
       width: 20%;
-
    }
 `
 
 export const Menu = styled.ul`
 display: flex;
 list-style: none;
-gap: 20px;
+gap: 50px;
 
 `
 
@@ -56,5 +55,5 @@ position: relative;
     &:hover::after{
       width: 100%;
     }
-
+    
 `
